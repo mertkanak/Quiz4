@@ -23,56 +23,82 @@
         android:id="@+id/turkishFlag"
         android:layout_width="80dp"
         android:layout_height="60dp"
-        android:src="@color/black"
+        android:src="@drawable/flag"
         android:layout_below="@id/titleText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
 
-    <!-- EditText for Turkish Lira Amount -->
-    <EditText
-        android:id="@+id/liraAmount"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Lira Amount"
-        android:inputType="numberDecimal"
         android:layout_below="@id/turkishFlag"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp">
 
-    <ListView
-        android:id="@+id/currencyListView"
+        <!-- Label for Turkish Lira Amount -->
+        <TextView
+            android:id="@+id/amountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount(TL):"
+            android:layout_alignBaseline="@id/liraAmount"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- EditText for Turkish Lira Amount -->
+        <EditText
+            android:id="@+id/liraAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Lira Amount"
+            android:inputType="numberDecimal"
+            android:layout_toEndOf="@id/amountLabel"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="30dp" />
+        android:layout_height="wrap_content">
 
-    <!-- EditText for Converted Amount -->
-    <EditText
-        android:id="@+id/convertedAmount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Converted Amount"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        <!-- Select Currency Label -->
+        <TextView
+            android:id="@+id/selectCurrencyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Currency:"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"/>
 
-    <!-- Convert Button -->
-    <Button
-        android:id="@+id/convertButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Convert"
-        android:layout_marginTop="16dp" />
+        <!-- Currency ListView -->
+        <ListView
+            android:id="@+id/currencyListView"
+            android:layout_width="match_parent"
+            android:layout_height="236dp"
+            android:layout_below="@id/selectCurrencyLabel"
+            android:layout_toEndOf="@+id/selectCurrencyLabel"
+            android:layout_marginBottom="16dp"/>
 
-    <!-- Reset Button -->
-    <Button
-        android:id="@+id/resetButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reset"
-        android:layout_marginTop="16dp" />
+        <!-- Converted Amount Label -->
+        <TextView
+            android:id="@+id/convertedAmountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Converted Amount:"
+            android:layout_below="@id/currencyListView"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"/>
 
+        <!-- Converted Amount EditText -->
+        <EditText
+            android:id="@+id/convertedAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Converted Amount"
+            android:layout_below="@id/currencyListView"
+            android:layout_toEndOf="@+id/convertedAmountLabel"
+            android:layout_marginTop="16dp"
+           />
+    </RelativeLayout>
 </LinearLayout>
